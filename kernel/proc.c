@@ -693,3 +693,10 @@ procdump(void)
     printf("\n");
   }
 }
+
+int
+sys_getppid(void)
+{
+    struct proc *curproc = myproc();
+    return curproc->parent ? curproc->parent->pid : -1;
+}
